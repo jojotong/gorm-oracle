@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sijms/go-ora/v2"
+	go_ora "github.com/sijms/go-ora/v2"
 	"github.com/thoas/go-funk"
 
 	"gorm.io/gorm"
@@ -257,7 +257,7 @@ func (d Dialector) DataTypeOf(field *schema.Field) string {
 		}
 
 	case schema.Time:
-		sqlType = "TIMESTAMP WITH TIME ZONE"
+		sqlType = "TIMESTAMP"
 
 	case schema.Bytes:
 		sqlType = "BLOB"
