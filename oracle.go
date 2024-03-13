@@ -169,6 +169,12 @@ func (d Dialector) RewriteLimit11(c clause.Clause, builder clause.Builder) {
 				log.Println(sqltmp.String())
 				stmt.SQL = sqltmp
 			}
+
+			if offset := limit.Offset; offset > 0 {
+				stmt.SQL.WriteString(" OFFSET ")
+				stmt.SQL.WriteString(strconv.Itoa(offset))
+				stmt.SQL.WriteString(" ROWS")
+			}
 		}
 	}
 }
